@@ -32,14 +32,13 @@ Layout:
 TextView disini digunakan sebagai judul kolom, EditText disini digunakan untuk mengisi isian angka dengan tipe inputnya adalah angka desimal. Begitupun dengan kolom isian lainnya. Width menggunakan match_parent supaya menyesuaikan dengan lebar layar, sedangkan tingginya sesuai dengan size teks.
 
 ...
-
 <Button
         android:id="@+id/hitungButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hitung"
-        android:layout_gravity="center"/>
-        
+        android:layout_gravity="center"
+        />       
 ...
 
 Button disini digunakan untuk digunakan di event listener yaitu setOnClickListener.
