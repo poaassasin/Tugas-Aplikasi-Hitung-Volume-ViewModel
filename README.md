@@ -10,8 +10,8 @@ Dependensi ini digunakan untuk import library view model.
 Layout:
 
 ...
-
-<TextView
+//
+< TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16sp"
@@ -19,31 +19,34 @@ Layout:
         android:textStyle="bold"
         />
 
-    <EditText
+    < EditText
         android:id="@+id/panjangEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Masukkan panjang"
         android:inputType="numberDecimal"
         android:layout_marginBottom="5dp"/>
-        
+//       
 ...
 
 TextView disini digunakan sebagai judul kolom, EditText disini digunakan untuk mengisi isian angka dengan tipe inputnya adalah angka desimal. Begitupun dengan kolom isian lainnya. Width menggunakan match_parent supaya menyesuaikan dengan lebar layar, sedangkan tingginya sesuai dengan size teks.
 
 ...
-<Button
+//
+< Button
         android:id="@+id/hitungButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hitung"
         android:layout_gravity="center"
         />    
+//
 ...
 
 Button disini digunakan untuk digunakan di event listener yaitu setOnClickListener.
 
 ...
+//
 panjangEditText = findViewById(R.id.panjangEditText);
 lebarEditText = findViewById(R.id.lebarEditText);
 tinggiEditText = findViewById(R.id.tinggiEditText);
@@ -54,11 +57,13 @@ hitungButton.setOnClickListener(new View.OnClickListener() {
                 hitungVolume();
             }
         });
+//
 ...
 
 Disini button dipanggil dengan findViewById dengan menarik id yang telah diassign di layout (activity_main.xml). Lalu dibuat event OnClickListener yang dimana apabila diklik akan memanggil method hitungVolume.
 
 ...
+//
 private void hitungVolume() {
         double panjang = Double.parseDouble(panjangEditText.getText().toString());
         double lebar = Double.parseDouble(lebarEditText.getText().toString());
@@ -66,12 +71,14 @@ private void hitungVolume() {
 
         viewModel.hitungVolume(panjang, lebar, tinggi);
         hasilTextView.setText("Hasil: " + viewModel.getHasil());
-    } 
+    }
+//
 ...
 
 di method tersebut, var panjang lebar tinggi diambil dari var yang sudah diassign menggunakan findViewById yang angkanya berupa text string diparse-ing menjadi double. Lalu memanggil object class viewModel [viewModel = new ViewModelProvider(this).get(MainVM.class)] untuk dikirimkan data panjang, lebar, dan tinggi ke class viewModel. 
 
 ...
+//
 public class MainVM extends ViewModel {
 public double getHasil() {
         return hasil;
@@ -81,6 +88,7 @@ public double getHasil() {
         hasil = panjang * lebar * tinggi;
     }
 }
+//
 ...
 
 hasil dari perhitungan di class viewModel akan diambil dan dijadikan text di dalam tampilan TextView dengan id hasilTextView.
