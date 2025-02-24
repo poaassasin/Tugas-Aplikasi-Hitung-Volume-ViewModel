@@ -28,6 +28,7 @@ Layout:
 ...
 
 TextView disini digunakan sebagai judul kolom, EditText disini digunakan untuk mengisi isian angka dengan tipe inputnya adalah angka desimal. Begitupun dengan kolom isian lainnya. Width menggunakan match_parent supaya menyesuaikan dengan lebar layar, sedangkan tingginya sesuai dengan size teks.
+
 ...
 <Button
         android:id="@+id/hitungButton"
@@ -36,7 +37,9 @@ TextView disini digunakan sebagai judul kolom, EditText disini digunakan untuk m
         android:text="Hitung"
         android:layout_gravity="center"/>
 ...
+
 Button disini digunakan untuk digunakan di event listener yaitu setOnClickListener.
+
 ...
 panjangEditText = findViewById(R.id.panjangEditText);
 lebarEditText = findViewById(R.id.lebarEditText);
@@ -49,6 +52,7 @@ hitungButton.setOnClickListener(new View.OnClickListener() {
             }
         });
 ...
+
 Disini button dipanggil dengan findViewById dengan menarik id yang telah diassign di layout (activity_main.xml). Lalu dibuat event OnClickListener yang dimana apabila diklik akan memanggil method hitungVolume.
 
 ...
@@ -64,8 +68,8 @@ private void hitungVolume() {
 
 di method tersebut, var panjang lebar tinggi diambil dari var yang sudah diassign menggunakan findViewById yang angkanya berupa text string diparse-ing menjadi double. Lalu memanggil object class viewModel [viewModel = new ViewModelProvider(this).get(MainVM.class)] untuk dikirimkan data panjang, lebar, dan tinggi ke class viewModel. 
 
-public class MainVM extends ViewModel {
 ...
+public class MainVM extends ViewModel {
 public double getHasil() {
         return hasil;
     }
@@ -74,6 +78,7 @@ public double getHasil() {
         hasil = panjang * lebar * tinggi;
     }
 }
+...
 
 hasil dari perhitungan di class viewModel akan diambil dan dijadikan text di dalam tampilan TextView dengan id hasilTextView.
 
